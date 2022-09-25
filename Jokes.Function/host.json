@@ -1,0 +1,17 @@
+{
+    "version": "2.0",
+  "logging": {
+    "logLevel": {
+      "Jokes.Function": "Information",
+      "Jokes.Application.Services": "Information",
+      "Jokes.Infrastructure.Services": "Information",
+      "Jokes.Application.Validators": "Information"
+    },
+    "applicationInsights": {
+      "samplingSettings": {
+        "isEnabled": true,
+        "excludedTypes": "Request"
+      }
+    }
+  }
+}
