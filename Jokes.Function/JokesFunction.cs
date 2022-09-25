@@ -21,7 +21,9 @@ namespace Jokes.Function
         {
             _logger = logger;
             _jokesService = jokesService;
-            _settings = settings.Value;
+            _settings = settings == null
+                ? throw new ArgumentException(nameof(settings))
+                : settings.Value;
         }
 
         [FunctionName("JokesFunction")]

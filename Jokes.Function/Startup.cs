@@ -17,7 +17,6 @@ namespace Jokes.Function
             builder.Services.AddLogging();
             builder.Services.AddApplication();
             builder.Services.AddInfrastructure();
-
             builder.Services.AddOptions<FunctionSettings>()
                 .Configure<IConfiguration>((settings, configuration) =>
                 {
@@ -29,7 +28,6 @@ namespace Jokes.Function
         {
             base.ConfigureAppConfiguration(builder);
             var context = builder.GetContext();
-
             builder.ConfigurationBuilder
                 .AddJsonFile(Path.Combine(context.ApplicationRootPath, "local.settings.json"), optional: true,
                     reloadOnChange: false);

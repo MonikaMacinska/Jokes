@@ -31,6 +31,14 @@ namespace Jokes.Application.UnitTests.Helpers
                     IconUrl = "C",
                     Url = "D",
                     Value = "E"
+                },
+                new Joke
+                {
+                    Id = "F",
+                    HashedId = "G",
+                    IconUrl = "H",
+                    Url = "I",
+                    Value = "J"
                 }
             };
         }

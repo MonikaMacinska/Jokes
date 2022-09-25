@@ -54,7 +54,7 @@ namespace Jokes.Application.UnitTests
 
             await _jokesService.ProcessJokes(It.IsAny<int>());
 
-            _repository.Verify(x=>x.SaveJokeAsync(It.IsAny<infra.Joke>()), Times.Once);
+            _repository.Verify(x=>x.SaveJokeAsync(It.IsAny<infra.Joke>()), Times.Exactly(2));
         }
 
         [Test]

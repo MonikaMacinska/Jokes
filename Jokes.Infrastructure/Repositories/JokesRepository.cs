@@ -21,30 +21,16 @@ namespace Jokes.Infrastructure.Repositories
                 : settings.Value;
         }
 
-        //private string _connection = "Data Source=C:\\Users\\macinskm\\source\\repos\\Jokes\\Jokes.Infrastructure\\Database\\JokesDb.db;Version=3;";
-
-        public void SaveJoke(Joke jokeDto)
-        {
-            using IDbConnection connection= new SQLiteConnection(_settings.ConnectionString);
-            connection.Execute("INSERT INTO Joke (Id, Hash, IconUrl, Url, Value) VALUES (@Id, @HashedId, @IconUrl, @Url, @Value)", jokeDto);
-        }
-
-        public async Task<int> SaveJokeAsync (Joke jokeDto)
+        public async Task<int> SaveJokeAsync (Joke joke)
         {
             using IDbConnection connection = new SQLiteConnection(_settings.ConnectionString);
-            return await connection.ExecuteAsync("INSERT INTO Joke (Id, Hash, IconUrl, Url, Value) VALUES (@Id, @HashedId, @IconUrl, @Url, @Value)", jokeDto);
+            return await connection.ExecuteAsync("INSERT INTO Joke (Id, Hash, IconUrl, Url, Value) VALUES (@Id, @HashedId, @IconUrl, @Url, @Value)", joke);
         }
 
-        public bool IsJokeExist(Joke jokeDto)
+        public async Task<bool> IsJokeExistAsync (Joke joke)
         {
             using IDbConnection connection = new SQLiteConnection(_settings.ConnectionString);
-            return connection.ExecuteScalar<bool>("SELECT COUNT(1) FROM Joke WHERE Hash=@HashedId", jokeDto);
-        }
-
-        public async Task<bool> IsJokeExistAsync (Joke jokeDto)
-        {
-            using IDbConnection connection = new SQLiteConnection(_settings.ConnectionString);
-            return await connection.ExecuteScalarAsync<bool>("SELECT COUNT(1) FROM Joke WHERE Hash=@HashedId", jokeDto);
+            return await connection.ExecuteScalarAsync<bool>("SELECT COUNT(1) FROM Joke WHERE Hash=@HashedId", joke);
         }
     }
 }

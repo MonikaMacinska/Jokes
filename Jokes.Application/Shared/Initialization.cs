@@ -22,6 +22,5 @@ namespace Jokes.Application.Shared
 
             return services;
         }
-
     }
 }

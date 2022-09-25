@@ -1,0 +1,24 @@
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet"
+  },
+  "FunctionSettings": {
+    "JokesCount": 2,
+    "CronSchedule": "*/3 * * * * *"
+  },
+  "JokesSettings": {
+    "MaxCharactersCount": 200
+  },
+  "ApiSettings": {
+    "Uri": "https://matchilling-chuck-norris-jokes-v1.p.rapidapi.com/jokes/random",
+    "KeyName": "X-RapidAPI-Key",
+    "KeyValue": "e7238b1a79msh0000dddb0671e0dp19d816jsnf0fb81317e14",
+    "HostName": "X-RapidAPI-Host",
+    "HostValue": "matchilling-chuck-norris-jokes-v1.p.rapidapi.com"
+  },
+  "DatabaseSettings": {
+    "ConnectionString": "Data Source=Database\\JokesDb.db;Version=3;"
+  }
+}
